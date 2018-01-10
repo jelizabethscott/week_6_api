@@ -1,10 +1,13 @@
 //initializing topic array
 var topics = ["Ace Ventura: When Nature Calls", "The Munsters", "Legally Blonde", "Stranger Things", "The Matrix",
 "Harry Potter", "Dave Chappelle", "Friends", "Blondie", "The Clash", "Kiss the Band", "Depeche Mode"];
+ 
 
-var topic = $(this).attr("data-name");
-var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
-        topics + "&api_key=dc6zaTOxFJmzC&limit=10";
+ function displayTopicGif() {
+
+  var topic = $(this).attr("data-name");
+  var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
+        topic + "&api_key=dc6zaTOxFJmzC&limit=10";
 
 
         $.ajax({
@@ -36,9 +39,12 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
           // Appending the image
           topicDiv.append(image);
 
-          // Putting the entire movie above the previous topic
+          // Putting the entire topic above the previous topic
           $("#giphy-view").prepend(topicDiv);
+
         });
+  }
+      
 
 
 // Function for displaying image data
@@ -75,9 +81,13 @@ var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         // The movie from the textbox is then added to our array
         topics.push(movie);
 
+         
+
         // calling renderButtons which handles the processing of our topic array
         renderButtons();
       });
+
+       $(document).on("click", ".topic", displayTopicGif);
 
       // Calling the renderButtons function at least once to display the initial list of topics
       renderButtons();
