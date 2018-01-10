@@ -14,12 +14,12 @@ var topics = ["Ace Ventura: When Nature Calls", "The Munsters", "Legally Blonde"
           url: queryURL,
           method: "GET"
         }).done(function(response) {
+          // Storing the rating data
+          var results = response.data;
+             for (var i = 0; i < results.length; i++) {
 
           // Creating a div to hold the topic
           var topicDiv = $("<div class='topic'>");
-
-          // Storing the rating data
-          var results = response.data;
 
           var rating = results[i].rating;
 
@@ -41,7 +41,7 @@ var topics = ["Ace Ventura: When Nature Calls", "The Munsters", "Legally Blonde"
 
           // Putting the entire topic above the previous topic
           $("#giphy-view").prepend(topicDiv);
-
+        }
         });
   }
       
