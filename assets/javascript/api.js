@@ -18,6 +18,7 @@ function displayTopicGif() {
         var results = response.data;
         for (var i = 0; i < results.length; i++) {
 
+
             // Creating a div to hold the topic
             var topicDiv = $("<div class='topic'>");
 
@@ -38,6 +39,7 @@ function displayTopicGif() {
 
             // Putting the entire topic above the previous topic
             $("#giphy-view").append(topicDiv);
+
         }
     });
 }
@@ -62,9 +64,12 @@ function renderButtons() {
         // Providing the initial button text
         a.text(topics[i]);
         // Adding the button to the giphy-view div
-        $("#giphy-view").append(a);
+        $("#giphy-view").prepend(a);
+
+
     }
 }
+
 
 // This function handles events where one button is clicked
 $("#add-topic").on("click", function(event) {
