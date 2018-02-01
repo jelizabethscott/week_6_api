@@ -1,6 +1,5 @@
 //initializing topic array
-var topics = ["Ace Ventura: When Nature Calls", "The Munsters", "Legally Blonde", "Stranger Things", "The Matrix",
-    "Harry Potter", "Dave Chappelle", "Friends", "Blondie", "The Clash", "Kiss the Band", "Depeche Mode"];
+
 
 
 function displayTopicGif() {
@@ -44,6 +43,10 @@ function displayTopicGif() {
     });
 }
 
+var topics = ["Ace Ventura: When Nature Calls", "The Munsters", "Legally Blonde", "Stranger Things", "The Matrix",
+    "Harry Potter", "Dave Chappelle", "Friends", "Blondie", "The Clash", "Kiss the Band", "Depeche Mode"];
+
+
 // Function for displaying image data
 function renderButtons() {
 
@@ -64,7 +67,7 @@ function renderButtons() {
         // Providing the initial button text
         a.text(topics[i]);
         // Adding the button to the giphy-view div
-        $("#giphy-view").prepend(a);
+        $("#buttons-view").append(a);
 
 
     }
@@ -89,4 +92,4 @@ $("#add-topic").on("click", function(event) {
 $(document).on("click", ".topic", displayTopicGif);
 
 // Calling the renderButtons function at least once to display the initial list of topics
-renderButtons();
+renderButtons();    
